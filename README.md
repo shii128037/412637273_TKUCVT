@@ -96,13 +96,15 @@ nginx: latest         dec7a90bd097        240MB         65. 8MB
 
 | 名稱 | 建立時機 | 用途說明 | 建立前驗證 |
 |---|---|---|---|
-| clean-baseline | （時間點）2026/3/22 21:57:10 | （此節點代表的狀態）建立第一個可回復基線。建 snapshot 之前必須先確認環境健康。 | （列出建點前做了哪些驗證）hostnamectl
+| clean-baseline | （時間點）2026/3/22 21:57:10 | （此節點代表的狀態）建立第一個可回復基線。建 snapshot 之前必須先確認環境健康。 
+| （列出建點前做了哪些驗證）hostnamectl
 ip route
 sudo docker --version
 docker compose version
 sudo systemctl status docker --no-pager
 sudo docker run --rm hello-world |
-| docker-ready | （時間點）2026/3/22 22:05:28 | （此節點代表的狀態）節省重複部署的時間 | （列出建點前做了哪些驗證）sudo systemctl status docker --no-pager
+| docker-ready | （時間點）2026/3/22 22:05:28 | （此節點代表的狀態）節省重複部署的時間 
+| （列出建點前做了哪些驗證）sudo systemctl status docker --no-pager
 sudo docker run --rm hello-world
 sudo docker images    # 確認 nginx、alpine 映像都在 |
 
