@@ -4,16 +4,15 @@
 ## 環境資訊
 - Host OS：Windows 11
 - VM 名稱：vct-w01-412637273
+
 - Ubuntu 版本：
-  No LSB modules are available.
-  Distributor ID: Ubuntu
-  Description:    Ubuntu 24.04.4 LTS
-  Release:        24.04
-  Codename:       noble
+<img width="583" height="128" alt="image" src="https://github.com/user-attachments/assets/9b35aee2-970d-4f85-a731-e90ce5cf603e" />
+
 - Docker 版本：
-  Docker version 29.3.0, build 5927d80
+<img width="615" height="60" alt="image" src="https://github.com/user-attachments/assets/f8f378b1-5c69-431f-86c1-80eb055b2bf8" />
+
 - Docker Compose 版本：
-  Docker Compose version v5.1.1
+<img width="603" height="39" alt="image" src="https://github.com/user-attachments/assets/fce8a0ef-d7cd-4d52-bc66-97d333e8d9c5" />
 
 ## VM 資源配置驗證
 
@@ -26,71 +25,29 @@
 
 ## 四層驗收證據
 - [ ] ① Repository：`cat /etc/apt/sources.list.d/docker.list` 輸出
-      deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] http://download.docker.com/linux/ubuntu noble stable
+<img width="806" height="63" alt="image" src="https://github.com/user-attachments/assets/d97a374c-4011-496a-82d4-a9782237bb6a" />
+
 - [ ] ② Engine：`dpkg -l | grep docker-ce` 輸出
-      ii  docker-ce       5:29.3.0-1~ubuntu.24.04~noble
-                amd64     Docker: the open-source application container engine
-      ii  dockernse-cli   5:29.3.0-1~ubuntu.24.04~noble
-                amd64     Docker CLI: the open-source application container engine
-      ii  dockerice-rootless-extras  5:29.3.0-1~ubuntu.24.04~noble
-                amd64     Rootless support for Docker.
+<img width="803" height="153" alt="image" src="https://github.com/user-attachments/assets/9394587c-610e-475d-bc17-8765d6eb618d" />
+
 - [ ] ③ Daemon：`sudo systemctl status docker` 顯示 active
-      Active:active(running)since Sun 2026-03-22 21:15:42 CST; 3min 48s ago
+<img width="806" height="530" alt="image" src="https://github.com/user-attachments/assets/4465e342-6ceb-493e-bca5-e78a6f8bc2cc" />
+
 - [ ] ④ 端到端：`sudo docker run hello-world` 成功輸出
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-17eec7bbc9d7: Pull complete
-ea52d2000f90: Download complete
-Digest: sha256:85404b3c53951c3ff5d40de0972b1bb21fafa2e8daa235355baf44f33db9dbdd
-Status: Downloaded newer image for hello-world: latest
+<img width="795" height="492" alt="image" src="https://github.com/user-attachments/assets/09007205-e6cf-475c-8a80-0981f33ec958" />
 
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
-1. The Docker client contacted the Docker daemon.
-2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (amd64)
-3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading. 
-4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal.
-   
-To try something more ambitious, you can run an Ubuntu container with:  
-$ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
-https://hub.docker.com/
-
-For more examples and ideas, visit:
-https://docs.docker.com/get-started/
 - [ ] Compose：`docker compose version` 可執行
-      Docker Compose version v5.1.1
+<img width="610" height="43" alt="image" src="https://github.com/user-attachments/assets/6207b962-a8fe-4687-aa6a-eb981e236487" />
 
 ## 容器操作紀錄
 - [ ] nginx：`sudo docker run -d -p 8080:80 nginx` + `curl localhost:8080` 輸出
-      a9aa55fd6bb812b3ffaf2b94325442b297b478cf198f84d755174c5942f74d49
-      curl: (35) OpenSSL/3.0.13: error: 0A00010B: SSL routines: :wrong version number
+<img width="733" height="667" alt="image" src="https://github.com/user-attachments/assets/10990ecc-90bf-4b41-9830-92fdb8ab716a" />
+
 - [ ] alpine：`sudo docker run -it --rm alpine /bin/sh` 內部命令與輸出
-/ # hostname
-9f0e1cfa369b
-/ # cat /etc/os-release
-NAME= "Alpine Linux"
-ID=alpine
-VERSION_ID=3.23.3
-PRETTY_NAME="Alpine Linux v3.23"
-HOME_URL="https://alpinelinux.org/"
-BUG_REPORT_URL=https://gitlab.alpinelinux.org/alpine/aports/-/issues"
-/ #Ls /
-bin  etc  lib  mnt  proc  run  srv  tmp  var
-dev  home  media  opt  root  sbin  sys  usr
-/ # whoami
-root
-/ # exit
+<img width="793" height="419" alt="image" src="https://github.com/user-attachments/assets/148cdcaf-8c48-484a-806b-ba30da3ee38a" />
+
 - [ ] 映像列表：`sudo docker images` 輸出
-IMAGE                 ID             DISK USAGE    CONTENT SIZE    EXTRA
-alpine: latest        25109184c71b       13.1MB          3.95MB
-hello-world: latest   85404b3c5395       25.9kB          9.52kB
-nginx: latest         dec7a90bd097        240MB         65. 8MB
+<img width="812" height="127" alt="image" src="https://github.com/user-attachments/assets/92b8b5e8-1001-4ec0-a86f-8c6df3b12a49" />
 
 ## Snapshot 清單
 
